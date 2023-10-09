@@ -1,0 +1,29 @@
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    environment:
+      - MONGO_URL=mongodb://database:27017/database
+
+  database:
+    image: mongo:4.4.6
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+
+  tests:
+    image: webapp
+    depends_on:
+      - webapp
+    environment:
+      - API_URL=http://webapp:3000
+    command: ["yarn", "test", "test.spec.js"]
+
+volumes:
+  mongodb_data:
