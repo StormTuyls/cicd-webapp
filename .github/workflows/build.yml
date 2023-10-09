@@ -31,4 +31,4 @@ jobs:
           tags: stormtuyls/webapp:latest
           push: true
       - name: Test code
-        run: yarn test.spec.js
+        run: yarn test
