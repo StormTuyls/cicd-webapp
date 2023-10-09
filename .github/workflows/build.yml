@@ -18,8 +18,6 @@ jobs:
         run: yarn install
       - name: Lint code
         run: yarn lint
-      - name: Test code
-        run: yarn test.spec.js
       - name: Docker Login
         uses: docker/login-action@v1
         with:
@@ -32,3 +30,5 @@ jobs:
           file: Dockerfile
           tags: stormtuyls/webapp:latest
           push: true
+      - name: Test code
+        run: yarn test.spec.js
