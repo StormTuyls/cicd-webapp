@@ -13,6 +13,6 @@ jobs:
       - name: install dependencies
         run: yarn install
         with:
-          node-version: "18"
+          node-version: 18
       - name: Lint code
         run: yarn lint
