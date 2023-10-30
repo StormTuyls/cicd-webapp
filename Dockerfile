@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM node:18.4.0 
+FROM node:18.18.1 
 WORKDIR /app
 COPY . /app
 RUN yarn install --frozen-lockfile
