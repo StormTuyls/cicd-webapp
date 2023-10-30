@@ -22,6 +22,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: Run Tests
+        run: yarn test test.spec.js
       - name: Build Docker image
         uses: docker/build-push-action@v2
         with:
@@ -29,9 +31,3 @@ jobs:
           file: Dockerfile
           tags: stormtuyls/webapp:latest
           push: true
-      - name: docker-compose up
-        run: docker-compose up -d
-      - name: Run Tests
-        run: yarn test test.spec.js
-      - name: docker-compose down
-        run: docker-compose down
