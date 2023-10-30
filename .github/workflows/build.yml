@@ -20,8 +20,8 @@ jobs:
       - name: Docker Login with PAT
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKER_AUTH_TOKEN}}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
       - name: Build Docker image
         uses: docker/build-push-action@v2
         with:
