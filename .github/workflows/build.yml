@@ -1,4 +1,3 @@
----
 name: Build and test
 on:
   push:
@@ -14,7 +13,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 18
-      - name: install dependencies
+      - name: Install dependencies
         run: yarn install
       - name: Lint code
         run: yarn lint
@@ -30,5 +29,5 @@ jobs:
           file: Dockerfile
           tags: stormtuyls/webapp:latest
           push: true
-      - name: Test code
-        run: yarn test test.spec.js
+      - name: Run Tests
+        run: yarn test
